@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<script type="text/javaScript" >
+
+function $(argument){
+	return document.getElementsByName(argument);
+}
+
+function myvalidation(){
+	var nme = $('name')[0].value;
+	var fname = $('fname')[0].value;
+	var pass = $('pass')[0].value;
+	var gen = document.querySelectorAll('[name=gen]:checked'); 
+	var sub = document.querySelectorAll('input[type=checkbox]:checked').length; 
+	var opt = document.querySelectorAll('select[id=lst] > option');
+
+	if (nme=="" || nme==null) {prompt("Enter name") ; }
+	if (fname=="" || fname==null) {prompt("Enter fname") ; }
+	if (pass=="" || pass==null) {prompt("Enter pass") ; }
+	if (gen.length ==0 || gen==null) {prompt("select at least gender is alloud") ; }
+	if (sub.length >2 || sub==null) {prompt("mot more than 3 are alloud") ; }
+	for(i=0;i<opt.length;i++){ if(opt[i].selected!=true) prompt(opt[i].value); }
+
+	return false;
+}
+
+</script>
+
+<body>
+<form action="" name="reg" method="get" onsubmit="return myvalidation();">
+<table>
+	<tr>
+		<td>Name</td>
+		<td><input title="Enter your name" type="text" name="name" placeholder="User Name"></td>
+	</tr>
+	<tr>
+		<td>Fname</td>
+		<td><input type="text" name="fname" > </td>
+	</tr>
+	<tr>
+		<td>PAssword</td>
+		<td><input type="password" name="pass"></td>
+	</tr>
+	<tr>
+		<td>Gender</td>
+		<td>Female: <input type="radio" name="gen" value="f">
+		Male : <input type="radio" name="gen" value="m"></td>
+	</tr>
+	<tr>
+		<td>Subject</td>
+		<td>
+			Maths: <input type="checkbox" name="sub1" value="a">
+			Science: <input type="checkbox" name="sub2" value="b">
+			English: <input type="checkbox" name="sub3" value="c">
+		</td>
+	</tr>
+	<tr>
+		<td>months</td>
+		<td>
+			<select multiple="multiple" size="2" id="lst">
+				<option  value="opa">op1</option>
+				<option value="opb">op2</option>
+				<option >op3</option>
+			</select>
+		</td>
+	</tr>
+
+	<tr>
+		<td><input type="submit" name="smt" value="submit"></td>
+		<td><input type="reset" name="reset" value="reset"></td>
+	</tr>
+</table>
+</form>
+
+
+
+</body>
+</html>
